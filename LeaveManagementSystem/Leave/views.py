@@ -24,7 +24,7 @@ def Total_RemainingLeaves(request):
         emp = Employee_Detail.objects.get(id=sid)
         print(emp)
         Usedleaves = emp.empname.aggregate(Count('Leave_Type'))
-        year = 2021
+        year = 2023
         print(Usedleaves)
         g = Usedleaves.get('Leave_Type__count')
         print(g)
@@ -33,7 +33,7 @@ def Total_RemainingLeaves(request):
         YearRmainingLeaves = Total-g
         return render(request,'Leave/Leanvecont.html',{'Total':Total,'Usedleaves': g,'YearRmainingLeaves': YearRmainingLeaves,'year': year,})
     else:
-        messages.error(request, ("login to see Rmaingleaves in year 2021  !"))
+        messages.error(request, ("login to see Rmaingleaves in year 2023  !"))
         return redirect('home')
 
 
@@ -106,7 +106,7 @@ def Home(request):
     return render(request, "Leave/index.html", {'name': name})
 
 # @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
+#@permission_classes([IsAuthenticated])
 def all_emp(request):
     if request.user.is_authenticated:
         emp = Employee_Detail.objects.all().order_by('-id')
