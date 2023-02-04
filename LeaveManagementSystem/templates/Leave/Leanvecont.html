@@ -1,0 +1,33 @@
+{% extends "common.html" %}
+{% block title %}LeaveCount Page{% endblock %}
+
+{% block contant %}
+
+    <div><h2>Employees LeaveCount List </h2></div><br>
+    <center><h2>{{ year }}</h2></center>
+
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">TotalLeaves for  Year</th>
+      <th scope="col">Remaining Leave For Year </th>
+      <th scope="col">Used Leaves for year </th>
+    </tr>
+  </thead>
+
+
+                <tbody>
+                                    <tr>
+                                      <td>{{ Total }}</td>
+                                      <td>{{ YearRmainingLeaves }}</td>
+                                      <td>{{ Usedleaves}}</td>
+                                    </tr>
+
+
+                </tbody>
+        </table>
+
+
+
+
+{% endblock %}

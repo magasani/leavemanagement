@@ -1,0 +1,82 @@
+{% extends "common.html" %}
+{% block title %}Add leave page{% endblock %}
+
+{% block contant %}
+    <div><h2>Create leave </h2></div><br>
+
+    {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                   {{ message}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                   </button>
+              </div>
+          {% endfor %}
+      {% endif %}<br>
+    <form method="post">
+    {% csrf_token %}
+        {% if request.session.Employee_Name  %}
+
+      <label for="exampleInputPassword1">LeaveType</label>
+        <div class="form-group">
+   <select name="leave" class="custom-select custom-select-lg mb-3">
+  <option value="Sick-Leave">Sick-Leave</option>
+  <option value="Casual-Leave">Casual-Leave</option>
+  <option value="Personal-Leave">Personal-Leave</option>
+  </select>
+  </div>
+
+            <label for="exampleInputPassword1">Month</label>
+        <div class="form-group">
+   <select name="month" class="custom-select custom-select-lg mb-3">
+  <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+  <option value="April">April</option>
+  <option value="May">May</option>
+  <option value="June">June</option>
+  <option value="July">July</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="October">October</option>
+  <option value="November">November</option>
+  <option value="december">december</option>
+  </select>
+  </div>
+              <!--<div class="form-group">
+    <label for="exampleInputPassword1">Pending</label>
+    <input type="hidden" class="form-control" name ='year'  placeholder="Pending" value="2021"  id="exampleInputPassword1">
+  </div>-->
+       <div class="form-group">
+    <label for="exampleInputPassword1">Start date</label>
+            <input type="text" name="startdate"  class="form-control"  placeholder="enter date like : 2021-04-29" required >
+
+      <small id="emailHelp" class="form-text text-muted">enter date like : 2021-04-29 </small>
+        </div>
+
+            <div class="form-group">
+    <label for="exampleInputPassword1">End date</label>
+            <input type="text" name="enddate"  class="form-control"  placeholder="enter date like : 2021-04-29" required >
+
+      <small id="emailHelp" class="form-text text-muted">enter date like : 2021-04-29 </small>
+        </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Reason</label>
+    <input type="text" class="form-control" name = 'reason' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="leave Reason" required>
+    <small id="emailHelp" class="form-text text-muted">max text must 200.</small>
+  </div>
+             <div class="form-group">
+    <label for="exampleInputPassword1">Pending</label>
+    <input type="hidden" class="form-control" name ="Pending"  placeholder="Pending" value="Pending"  id="exampleInputPassword1">
+  </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+  {% else %}
+            <h2>to create leave login first</h2>
+
+
+    {% endif %}
+
+</form>
+{% endblock %}

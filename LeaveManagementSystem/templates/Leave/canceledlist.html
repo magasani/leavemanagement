@@ -1,0 +1,50 @@
+{% extends "common.html" %}
+{% block title %}Cancelledlist leave Page{% endblock %}
+
+{% block contant %}
+
+    <div><h2>Cancelledlist  leave list </h2></div><br>
+
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Leave_Type</th>
+      <th scope="col">Month</th>
+        <th scope="col">Year</th>
+        <th scope="col">Start_Date</th>
+        <th scope="col" >End_Date</th>
+         <th scope="col"> Reason</th>
+         <th scope="col" >Status </th>
+    </tr>
+  </thead>
+
+                <tbody>
+                {% if lev %}
+                    {% for e in lev %}
+                           <tbody>
+                                    <tr>
+                                    <td>{{ e.id}}</td>
+                                      <td>{{ e.Employee_Name}}</td>
+                                      <td>{{ e.Leave_Type }}</td>
+                                      <td>{{ e.Month}}</td>
+                                      <td>{{ e.Year }}</td>
+                                      <td>{{ e.Start_Date }}</td>
+                                    <td>{{ e.End_Date }}</td>
+                                    <td>{{ e.Reason }}</td>
+                                    <td>{{ e.Status  }}</td>
+
+                                    </tr>
+
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+        </table>
+
+
+
+
+
+
+{% endblock %}

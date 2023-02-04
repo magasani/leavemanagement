@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{%static 'css/demo.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>rigistration form</h1>
+    <div class="container" text-align="center">
+        {% if sent %}  
+           <h1>thanka for providing informations</h1>
+           <h1>enter next sudent</h1>
+           {%else%} 
+           <h1>student marks submit form</h1>
+           {%endif%} 
+           <hr>
+        <form method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" name="" value="Submit">
+        </form>
+    </div>
+
+    
+</body>
+</html>
